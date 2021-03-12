@@ -1,7 +1,7 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-//эта строчка гарантирует что наш скрипт не завалится ести на плеере будет отсутствовать компонент Rigidbody
-[RequireComponent(typeof(Rigidbody))]
 public class Movement : MonoBehaviour
 {
     // т.к. логика движения изменилась мы выставили меньшее и более стандартное значение
