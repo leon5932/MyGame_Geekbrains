@@ -13,6 +13,8 @@ public class Movement : MonoBehaviour
     private bool _isGrounded;
     private Rigidbody _rb;
 
+    public bool DoorsKey = false;
+
     void Start()
     {
         _rb = GetComponent<Rigidbody>();
