@@ -19,7 +19,6 @@ public class enemySpawner : MonoBehaviour
 
     public void SpawnEnemy()
     {
-
         GameObject go = Instantiate<GameObject>(enemyPreafab);
     }
 }
