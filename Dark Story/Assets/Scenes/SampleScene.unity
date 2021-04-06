@@ -677,33 +677,25 @@ GameObject:
   - component: {fileID: 413344820}
   - component: {fileID: 413344822}
   m_Layer: 0
-  m_Name: OpenDoor
-  m_TagString: Untagged
+  m_Name: Door
+  m_TagString: Door
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &413344820
-MonoBehaviour:
+--- !u!65 &413344820
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 413344819}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3bad8233e35579547b6c07562581d8da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  smooth: 2
-  DoorOpenAngle: 90
-  OpenAudio: {fileID: 0}
-  CloseAudio: {fileID: 0}
-  AudioS: 0
-  defaultRot: {x: 0, y: 0, z: 0}
-  openRot: {x: 0, y: 0, z: 0}
-  open: 0
-  enter: 0
+  serializedVersion: 2
+  m_Size: {x: 1.4259253, y: 2.1714752, z: 0.60335827}
+  m_Center: {x: 0.66089654, y: -0.3690275, z: -0.017405987}
 --- !u!4 &413344821
 Transform:
   m_ObjectHideFlags: 0
@@ -719,19 +711,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &413344822
-BoxCollider:
+--- !u!114 &413344822
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 413344819}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 2.7970905, y: 1.8974082, z: 2.4122524}
-  m_Center: {x: 0.6895066, y: -0.44870412, z: 0.043993354}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cfc5387b861eec34cb2c4a4f80883979, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  openDoor: 120
+  closeDoor: 0
+  speed: 2
+  isOpen: 0
 --- !u!1001 &437113529
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -844,15 +839,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: Door_Wooden_Round_Right
       objectReference: {fileID: 0}
+    - target: {fileID: 9074594807983055082, guid: 15745f8b70e5d524183539fa272d90a3, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9074594807983055083, guid: 15745f8b70e5d524183539fa272d90a3, type: 3}
       propertyPath: m_Convex
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9074594807983055083, guid: 15745f8b70e5d524183539fa272d90a3, type: 3}
       propertyPath: m_IsTrigger
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 9074594807983055083, guid: 15745f8b70e5d524183539fa272d90a3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 15745f8b70e5d524183539fa272d90a3, type: 3}
 --- !u!4 &607811246 stripped
 Transform:
@@ -1509,23 +1509,6 @@ PrefabInstance:
       objectReference: {fileID: 13400000, guid: 4d20c62a46f4d9b48ae8bc125f9b550f, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 672e720ef69a65b44a71577cd7cc26ed, type: 3}
---- !u!1 &1357781738 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 9074594807983055082, guid: 15745f8b70e5d524183539fa272d90a3, type: 3}
-  m_PrefabInstance: {fileID: 583644902}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1357781739
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1357781738}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e908a9d110a1f9d499276f3b89cae012, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1357781743 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9074594807982636234, guid: 15745f8b70e5d524183539fa272d90a3, type: 3}
@@ -2311,6 +2294,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _mine: {fileID: 926179891166945452, guid: e763b53c2e46436469a53d71db86898a, type: 3}
   _PointSpawner: {fileID: 1134817802}
+--- !u!114 &2917991198968253506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2917991198968253504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5eeb46f998095f1458053c04160c5528, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distance: 3
 --- !u!4 &2917991198968253510 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2708913561346045588, guid: e4f444ffebbb8ec4584712cef5a2ea9d, type: 3}
